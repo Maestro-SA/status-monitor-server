@@ -10,7 +10,7 @@ jobs:
       - checkout
       - restore_cache:
           key: status-monitor-service-{{ checksum "deps.edn" }}
-      - run: clojure -R:dev:test:runner -Spath
+      - run: clojure -A:dev:test:runner -Spath
       - save_cache:
           paths:
             - ~/.m2
