@@ -9,11 +9,11 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: status-monitor-service-{{ checksum "deps.edn" }}
-      - run: clojure -A:dev:test:runner -Spath
+          key: status_monitor_service-{{ checksum "deps.edn" }}
+      - run: clojure -M:dev:test:runner -Spath
       - save_cache:
           paths:
             - ~/.m2
             - ~/.gitlibs
-          key: status-monitor-service-{{ checksum "deps.edn" }}
-      - run: clojure -A:dev:test:runner
+          key: status_monitor_service-{{ checksum "deps.edn" }}
+      - run: clojure -M:dev:test:runner

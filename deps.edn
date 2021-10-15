@@ -7,9 +7,9 @@
           ring/ring-core  {:mvn/version "1.8.1"}
           ring/ring-devel {:mvn/version "1.8.1"}}
  :aliases
- {:run-m {:main-opts ["-m" "practicalli.status-monitor-service"]}
-  :run-x {:ns-default practicalli.status-monitor-service
-          :exec-fn greet
+ {:run-m {:main-opts ["-m" "practicalli.status_monitor_service"]}
+  :run-x {:ns-default practicalli.status_monitor_service
+          :exec-fn (-main "3000")
           :exec-args {:name "Clojure"}}
   :build {:deps {io.github.seancorfield/build-clj
                  {:git/tag "v0.4.0" :git/sha "54e39ae"}}
