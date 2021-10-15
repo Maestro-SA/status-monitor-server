@@ -6,7 +6,6 @@
 
           ring/ring-core  {:mvn/version "1.8.1"}
           ring/ring-devel {:mvn/version "1.8.1"}}
- :dev    {:extra-deps {ring/ring-mock {:mvn/version "0.4.0"}}}
  :aliases
  {:run-m {:main-opts ["-m" "practicalli.status-monitor-service"]}
   :run-x {:ns-default practicalli.status-monitor-service
@@ -15,7 +14,16 @@
   :build {:deps {io.github.seancorfield/build-clj
                  {:git/tag "v0.4.0" :git/sha "54e39ae"}}
           :ns-default build}
-  :test {:extra-paths ["test"]
-         :extra-deps {org.clojure/test.check {:mvn/version "1.1.0"}
-                      io.github.cognitect-labs/test-runner
-                      {:git/tag "v0.5.0" :git/sha "48c3c67"}}}}}
+  :test  {:extra-paths ["test"]
+          :extra-deps {org.clojure/test.check {:mvn/version "1.1.0"}
+                       io.github.cognitect-labs/test-runner
+                       {:git/tag "v0.5.0" :git/sha "48c3c67"}}}
+  :dev   {:extra-deps {ring/ring-mock {:mvn/version "0.4.0"}}}
+  :runner
+  {:extra-paths ["test"]
+   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.887"}}
+   :main-opts   ["-m" "kaocha.runner"]}
+  :uberjar
+  {:extra-deps {seancorfield/depstar {:mvn/version "1.0.94"}}
+   :main-opts  ["-m" "hf.depstar.uberjar" "status_monitor_service.jar"
+                "-C" "-m" "practicalli.status_monitor_service"]}}}

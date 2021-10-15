@@ -1,4 +1,4 @@
-(ns practicalli.status-monitor-service-test
+(ns practicalli.status_monitor_service_test
   (:require [clojure.test :refer [deftest is testing]]
             [ring.mock.request :as  mock]
             [practicalli.status-monitor-service :as SUT]))

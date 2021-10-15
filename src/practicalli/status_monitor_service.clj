@@ -1,4 +1,4 @@
-(ns practicalli.status-monitor-service
+(ns practicalli.status_monitor_service
   (:gen-class)
   (:require [org.httpkit.server       :as app-server]
             [compojure.core           :refer [defroutes GET]]
